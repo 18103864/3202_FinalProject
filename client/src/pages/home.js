@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import { useGetUserID } from '../hooks/getUserId'
 import { useCookies } from "react-cookie";
+import { redirect } from "react-router-dom";
 
 export const Home = () => {
     const cardBody = {
@@ -13,7 +14,13 @@ export const Home = () => {
     const [savedMovies, setSaveMovies] = useState([]);
     const userID = useGetUserID();
 
+
     useEffect(() => {
+        if(!localStorage.getItem("userID")){
+            redirect("/login");
+        }
+    
+
         const fetchMovies = async () => {
             try {
                 const response = await axios.get("http://localhost:3001/movies/");
@@ -75,7 +82,7 @@ export const Home = () => {
                                 <div className="card-footer text-body-secondary d-flex flex-column justify-content-center">
                                     <span>Release Date: {formatDate(movie.movie_releaseDate)}</span>
                                     <div>
-                                        {!isMovieFave(movie._id) ? (
+                                        {movie && !isMovieFave(movie._id) ? (
                                             <button 
                                                 className="btn btn-info mt-3"
                                                 onClick={() => saveMovie(movie._id)}
