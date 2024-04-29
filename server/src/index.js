@@ -15,6 +15,11 @@ app.use("/movies", MoviesRouter);
 
 mongoose.connect(
     "mongodb+srv://18103694:finalproject@movielibrary.m89pnzs.mongodb.net/MovieLibrary?retryWrites=true&w=majority&appName=MovieLibrary"
-)
+).then(()=> {
+    console.log("CONNECTED TO DATABASE");
+    app.listen(3001, () => {
+        console.log(`SERVER STARTED RUNNING ON GIVEN PORT`);
+    })
+})
+.catch((err) => console.log(err))
 
-app.listen(3001, () => console.log("SERVER STARTED"));
