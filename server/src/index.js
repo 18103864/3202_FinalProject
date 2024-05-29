@@ -14,7 +14,7 @@ app.use("/auth", userRouter);
 app.use("/movies", MoviesRouter);
 
 mongoose.connect(
-    "mongodb+srv://18103694:finalproject@movielibrary.m89pnzs.mongodb.net/MovieLibrary?retryWrites=true&w=majority&appName=MovieLibrary"
+    "mongodb+srv://18103864:CwiDJc3eHBR2b54L@3202finalprojectvercel.n9oigii.mongodb.net/"
 ).then(()=> {
     console.log("CONNECTED TO DATABASE");
     app.listen(3001, () => {
