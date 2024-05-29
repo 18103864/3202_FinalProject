@@ -11,7 +11,7 @@ import { Navbar } from './components/navbar';
 import { AddedMovies } from './pages/addedMovies';
 import PrivateRoutes from './hooks/PrivateRoutes';
 
-axios.defaults.baseURL = 'http://localhost:8001';
+axios.defaults.baseURL = 'http://localhost:3001';
 
 function App() {
   return (
