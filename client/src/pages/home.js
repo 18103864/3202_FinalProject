@@ -23,7 +23,7 @@ export const Home = () => {
 
         const fetchMovies = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/movies/");
+                const response = await axios.get("/movies/");
                 setMovies(response.data);
                 // console.log(response.data);
             } catch (error) {
@@ -33,7 +33,7 @@ export const Home = () => {
 
         const fetchSavedMovies = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/movies/savedMovies/ids/${userID}`);
+                const response = await axios.get(`/movies/savedMovies/ids/${userID}`);
                 setSaveMovies(response.data.savedMovies);
                 // console.log(response.data);
             } catch (error) {
@@ -48,7 +48,7 @@ export const Home = () => {
     const saveMovie = async (movieID) => {
         try {
             console.log(movieID, userID)
-            const response = await axios.put("http://localhost:3001/movies/",
+            const response = await axios.put("/movies/",
             {
                 movieID,
                 userID

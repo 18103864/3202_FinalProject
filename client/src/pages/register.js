@@ -17,7 +17,7 @@ const RegisterDiv = () => {
 
         try {
             if(username != "" && password != ""){
-                const response = await axios.post("http://localhost:3001/auth/register", {
+                const response = await axios.post("/auth/register", {
                     username, password
                 });
                 // console.log(response.status);\

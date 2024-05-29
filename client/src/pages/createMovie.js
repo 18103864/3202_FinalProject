@@ -23,7 +23,7 @@ export const CreateMovie = () => {
     const onSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post("http://localhost:3001/movies/", movie);
+            await axios.post("/movies/", movie);
             alert("Movie Successfully Added!");
             navigate("/");
         } catch (error) {

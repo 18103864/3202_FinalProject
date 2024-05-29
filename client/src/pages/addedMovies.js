@@ -25,7 +25,7 @@ export const AddedMovies = () => {
     useEffect(() => {
         const fetchAddedMovies = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/movies/addedMovies/${userID}`);
+                const response = await axios.get(`/movies/addedMovies/${userID}`);
                 setAddedMovies(response.data);
             } catch (error) {
                 console.log(error);
@@ -37,7 +37,7 @@ export const AddedMovies = () => {
 
     const removeMovieFromList = async (movieID) => {
         try {
-            const response = await axios.delete(`http://localhost:3001/movies/delete/addedMovie/${movieID}`);
+            const response = await axios.delete(`/movies/delete/addedMovie/${movieID}`);
             if(response.data.status == 1){
                 alert(response.data.message);
                 window.location.reload();
@@ -62,7 +62,7 @@ export const AddedMovies = () => {
 
     const updateMovie = async () => {
         try {
-            const response = await axios.put(`http://localhost:3001/movies/editMovie/${modalMovie._id}`,{
+            const response = await axios.put(`/movies/editMovie/${modalMovie._id}`,{
                 movie_name: modalMovie.movie_name,
                 movie_description: modalMovie.movie_description,
                 movie_img_url: modalMovie.movie_img_url,

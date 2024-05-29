@@ -1,5 +1,6 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import axios from 'axios';
 
 import { Home } from './pages/home';
 import { Login } from './pages/login';
@@ -9,6 +10,8 @@ import { SavedMovies } from './pages/savedMovies';
 import { Navbar } from './components/navbar';
 import { AddedMovies } from './pages/addedMovies';
 import PrivateRoutes from './hooks/PrivateRoutes';
+
+axios.defaults.baseURL = 'http://localhost:8001';
 
 function App() {
   return (

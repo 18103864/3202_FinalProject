@@ -14,7 +14,7 @@ export const SavedMovies = () => {
     useEffect(() => {
         const fetchSavedMovies = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/movies/savedMovies/${userID}`);
+                const response = await axios.get(`/movies/savedMovies/${userID}`);
                 setSaveMovies(response.data);
                 // console.log(response.data);
             } catch (error) {
@@ -36,7 +36,7 @@ export const SavedMovies = () => {
     const remFavorites = async (id) => {
         try {
             // console.log(id);
-            const response = await axios.delete(`http://localhost:3001/movies/deleteFav/${userID}/${id}`);
+            const response = await axios.delete(`/movies/deleteFav/${userID}/${id}`);
             if(response.data.response){
                 alert(response.data.message);
                 window.location.reload();
